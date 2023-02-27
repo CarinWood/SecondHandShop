@@ -8,7 +8,7 @@ public class ShopController {
 
 
 
-    @GetMapping("/")
+    @GetMapping("/nicetohave")
     String ShopFunc() {
         return "shop";
     }
