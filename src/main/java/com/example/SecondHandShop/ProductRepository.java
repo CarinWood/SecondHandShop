@@ -9,12 +9,8 @@ public class ProductRepository {
 
     ArrayList<Product> products;
 
-    ArrayList<Product> customerItems;
-
 
     public ProductRepository() {
-
-        this.customerItems = new ArrayList<>();
 
         this.products = new ArrayList<>();
         products.add(new Product("My little pony", "Fin häst från 80-talet! Mycket gott skick! Mint condition", 100, "/images/pony.jpg", Cathegory.LEKSAKER, 1));

@@ -14,6 +14,7 @@ public class ShopController {
 
     @Autowired
     ProductRepository productRepository;
+    Cart cart;
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.getProducts());
@@ -24,8 +25,8 @@ public class ShopController {
     @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable int id) {
         model.addAttribute("product", productRepository.getProduct(id));
-        productRepository.customerItems.add(productRepository.getProduct(id));
-        System.out.println(productRepository.customerItems);
+        cart.customerItems.add(productRepository.getProduct(id));
+        System.out.println(cart.customerItems);
         return "product";
     }
 
