@@ -76,57 +76,8 @@ li {
     margin-right: 5px;
 }
 
-.products {
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 100px;
-}
-
-.product {
-    margin-right: 100px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.name {
+.checkout-products {
+    margin-top: 300px;
     color: black;
     font-size: 30px;
 }
-
-img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
-
-.see-more-btn {
-     font-family: 'Tilt Neon', cursive;
-     background: teal;
-     margin-top: 10px;
-     color: white;
-     padding: 10px;
-     border: none;
-     border-radius: 5px;
-}
-
-.customer-cart {
-    width: 400px;
-    height: 400px;
-    position: absolute;
-    right: 0;
-    top: 10%;
-    background: lightgray;
-    margin-top: 500px;
-}
-
-.checkout-btn {
-    width: 120px;
-    background-color: teal;
-}
-
-

@@ -20,7 +20,17 @@ public class Cart {
 
 
     public ArrayList<Product> getItems() {
-        return customerItems;
+
+       return customerItems;
+    }
+
+    public int getSum() {
+       int sum = 0;
+       for(Product product: customerItems) {
+           sum += product.price;
+       }
+
+       return sum;
     }
 
 }

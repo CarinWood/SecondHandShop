@@ -21,7 +21,9 @@ public class ShopController {
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.getProducts());
-        model.addAttribute("cartArray", cart.getItems().size());
+        model.addAttribute("cartSize", cart.getItems().size());
+        model.addAttribute("cartArray", cart.getItems());
+        model.addAttribute("sum", cart.getSum());
 
         return "shop";
     }
@@ -31,15 +33,26 @@ public class ShopController {
         model.addAttribute("product", productRepository.getProduct(id));
         cart.getItems().add(productRepository.getProduct(id));
         System.out.println(cart.getItems());
+        model.addAttribute("cartArray", cart.getItems().size());
         return "product";
     }
 
     @GetMapping("/nicetohave/{id}")
     String getProductFunc(Model model, @PathVariable int id) {
         model.addAttribute("product", productRepository.getProduct(id));
-        //session.setAttribute("productId", id);
+        model.addAttribute("cartArray", cart.getItems().size());
 
         return "product";
+    }
+
+    @GetMapping("/nicetohave/checkout")
+    String checkoutFunc(Model model) {
+
+        model.addAttribute("", cart.getItems());
+        model.addAttribute("cartSize", cart.getItems().size());
+
+        return "checkout";
+
     }
 
 
