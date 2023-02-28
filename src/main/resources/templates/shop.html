@@ -7,12 +7,6 @@
 
   />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
- <!--   <style>
-        img {
-            width: 200px;
-            height: 200px;
-        }
-    </style>-->
 </head>
 <body>
 <div class="header">
@@ -23,7 +17,7 @@
         <li>Logga in</li>
         <li>Bli medlem</li>
     </ul>
-    <button class="cart-btn"><i class='bx bxs-cart' th:text="${cartSize}"></i>Varukorg</button>
+    <button class="cart-btn" th:onclick="toggleCart()"><i class='bx bxs-cart' th:text="${cartSize}"></i>Varukorg</button>
 
 </div>
 
@@ -38,14 +32,22 @@
 
 <div th:class="products">
     <article th:each="product: ${products}" th:class="product">
-        <p th:class="name" th:text="${product.getCathegory()}" />
-        <p th:class="name" th:text="${product.getName()}"></p>
-        <p th:class="name" th:text="${product.getPrice()}"></p>
         <img th:class="name" th:src="${product.getImage()}" alt=""/>
-        <button th:class="see-more-btn" ><a th:href="'/nicetohave/' + ${product.getId()}">Se mer</a></button>
+        <p th:class="name"><a th:href="'/nicetohave/' + ${product.getId()}">[[${product.getName()}]]</a></p>
+
+
+            <p th:class="price" th:text="${product.getPrice()} + ' kr'"></p>
+
     </article>
 </div>
 
+<script>
+    const cart = document.querySelector(".customer-cart");
 
+    function toggleCart() {
+      cart.classList.add("show");
+
+    }
+</script>
 </body>
 </html>

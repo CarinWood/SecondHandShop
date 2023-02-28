@@ -13,6 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 1px solid pink;
+    font-family: 'Tilt Neon', cursive;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -35,13 +37,6 @@ h1 {
 
 }
 
-
-
-.search-field {
-    position: absolute;
-    left: 50%;
-
-}
 
 ul {
     display: flex;
@@ -72,20 +67,24 @@ li {
     cursor: pointer;
 }
 
+.cart-btn:active {
+     transform: translateY(2px);
+}
+
 .bxs-cart {
     margin-right: 5px;
 }
 
 .products {
     margin-top: 100px;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
-    margin: 100px;
+    margin: 100px 100px;
 }
 
 .product {
-    margin-right: 100px;
+    margin-right: 50px;
     margin-bottom: 100px;
     display: flex;
     flex-direction: column;
@@ -95,38 +94,86 @@ li {
 
 .name {
     color: black;
-    font-size: 30px;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.name a {
+    text-decoration: none;
 }
 
 img {
-    width: 200px;
-    height: 200px;
+    width: 200px !important;
+    height: 200px !important;
     object-fit: cover;
 }
 
 .see-more-btn {
      font-family: 'Tilt Neon', cursive;
      background: teal;
-     margin-top: 10px;
      color: white;
      padding: 10px;
      border: none;
      border-radius: 5px;
 }
 
+.see-more-btn a {
+    text-decoration: none;
+    color: white;
+}
+
 .customer-cart {
     width: 400px;
     height: 400px;
     position: absolute;
-    right: 0;
-    top: 10%;
+    right: -100%;
+    top: 12%;
     background: lightgray;
-    margin-top: 500px;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.show {
+      right: 0;
 }
 
 .checkout-btn {
-    width: 120px;
     background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+
 }
+
+.checkout-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.checkout-btn:active {
+    transform: translateY(2px);
+}
+
+.price {
+    font-weight: 800;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+
 
 
