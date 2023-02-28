@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -23,12 +24,18 @@ public class ShopController {
     @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable int id) {
         model.addAttribute("product", productRepository.getProduct(id));
+        productRepository.customerItems.add(productRepository.getProduct(id));
+        System.out.println(productRepository.customerItems);
         return "product";
     }
 
     @GetMapping("/nicetohave/{id}")
-    String getProductFunc() {
+    String getProductFunc(Model model, @PathVariable int id) {
+        model.addAttribute("product", productRepository.getProduct(id));
 
         return "product";
     }
+
+
+
 }

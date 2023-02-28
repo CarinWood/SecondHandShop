@@ -9,7 +9,12 @@ public class ProductRepository {
 
     ArrayList<Product> products;
 
+    ArrayList<Product> customerItems;
+
+
     public ProductRepository() {
+
+        this.customerItems = new ArrayList<>();
 
         this.products = new ArrayList<>();
         products.add(new Product("My little pony", "Fin häst från 80-talet! Mycket gott skick! Mint condition", 100, "/images/pony.jpg", Cathegory.LEKSAKER, 1));
@@ -20,6 +25,7 @@ public class ProductRepository {
         products.add(new Product("Yamaha DT", "Årsmodell 1997, gått 1200 mil", 10000, "/images/moped.png", Cathegory.FORDON, 6));
 
     }
+
 
 
 
@@ -35,6 +41,9 @@ public class ProductRepository {
         }
         return null;
     }
+
+
+
 }
 
 

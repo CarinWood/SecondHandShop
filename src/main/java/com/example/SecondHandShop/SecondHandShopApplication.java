@@ -13,6 +13,7 @@ public class SecondHandShopApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(SecondHandShopApplication.class, args);
+
 	}
 
 }

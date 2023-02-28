@@ -1,3 +1,6 @@
+.productInfo{
+margin-top:100px;
+}
 @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
 
 
@@ -76,42 +79,8 @@ li {
     margin-right: 5px;
 }
 
-.products {
-    margin-top: 100px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 100px;
-}
-
-.product {
-    margin-right: 100px;
-    margin-bottom: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.name {
-    color: black;
-    font-size: 30px;
-}
-
 img {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 500px;
     object-fit: cover;
 }
-
-.see-more-btn {
-     font-family: 'Tilt Neon', cursive;
-     background: teal;
-     margin-top: 10px;
-     color: white;
-     padding: 10px;
-     border: none;
-     border-radius: 5px;
-}
-
-
