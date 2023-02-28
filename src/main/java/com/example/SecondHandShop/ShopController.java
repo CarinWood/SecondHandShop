@@ -21,6 +21,7 @@ public class ShopController {
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.getProducts());
+        model.addAttribute("cartArray", cart.getItems().size());
 
         return "shop";
     }
