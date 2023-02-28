@@ -5,10 +5,10 @@ public class Product {
     String description;
     int price;
     String image;
-    String cathegory;
+    Cathegory cathegory;
     int id;
 
-    public Product(String name, String description, int price, String image, String cathegory, int id) {
+    public Product(String name, String description, int price, String image, Cathegory cathegory, int id) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -49,11 +49,11 @@ public class Product {
         this.image = image;
     }
 
-    public String getCathegory() {
+    public Cathegory getCathegory() {
         return cathegory;
     }
 
-    public void setCathegory(String cathegory) {
+    public void setCathegory(Cathegory cathegory) {
         this.cathegory = cathegory;
     }
 
