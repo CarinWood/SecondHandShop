@@ -110,11 +110,12 @@ img {
      padding: 8px;
      font-size: 18px;
      letter-spacing: 0.5px;
+     cursor: pointer;
 }
 
 .product-text {
          display: flex;
          flex-direction: column;
-         justify-content: center;
+         justify-content: flex-start;
          align-items: center;
 }
