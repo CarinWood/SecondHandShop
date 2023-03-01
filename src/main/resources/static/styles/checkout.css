@@ -15,6 +15,11 @@ body {
     border-radius: 1px solid pink;
 }
 
+   a-tag {
+            text-decoration: none;
+            color: white;
+        }
+
 h1 {
     color: purple;
     font-family: 'Tilt Neon', cursive;

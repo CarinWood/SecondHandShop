@@ -83,13 +83,38 @@ li {
 }
 
 img {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 
 .productInfo {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.product-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buy {
+    background-color: teal;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 8px;
+     font-size: 18px;
+     letter-spacing: 0.5px;
+}
+
+.product-text {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
 }
