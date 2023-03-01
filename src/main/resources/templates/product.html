@@ -31,7 +31,7 @@
 <article th:class="product">
         <p th:class="name" th:text="${product.getCathegory()}" />
         <p th:class="name" th:text="${product.getName()}"></p>
-        <p th:class="name" th:text="${product.getPrice()}"></p>
+        <p th:class="name" th:text="${product.getPrice()} + ' kr'"></p>
         <p th:class="name" th:text="${product.getDescription()}"></p>
         <img th:class="name" th:src="${product.getImage()}" alt=""/>
     <form th:action="@{'/nicetohave/' + ${product.getId()}}" method="post">
