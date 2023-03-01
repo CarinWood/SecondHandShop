@@ -54,6 +54,11 @@ li {
     color: white;
 }
 
+.newpost-a-tag {
+    text-decoration: none;
+    color: white;
+}
+
 .cart-btn {
     border: 1px dotted black;
     font-family: 'Tilt Neon', cursive;

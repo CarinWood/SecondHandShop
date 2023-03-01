@@ -7,10 +7,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-       a-tag {
+       .a-tag {
             text-decoration: none;
-            color: white;
+            color: white !important;
         }
+
+        .bottom-div {
+            display: flex;
+            width: 250px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-image {
+            width: 300px!important;
+            height: 300px!important;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .product-text {
+            padding: 0px;
+            height: 300px!important;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start!important;
+        }
+
+
+
+
     </style>
 </head>
 <body>
@@ -18,7 +45,7 @@
 
     <h1><a th:class="a-tag" th:href="'/nicetohave'">Nice to have</a></h1>
     <ul>
-        <li><a th:href="'/nicetohave/newpost'">Ny annons</a></li>
+        <li><a th:class="a-tag" th:href="'/nicetohave/newpost'">Ny annons</a></li>
         <li>Logga in</li>
         <li>Bli medlem</li>
     </ul>
@@ -44,15 +71,19 @@
 
 
         <div th:class="product-div">
-            <img th:class="name" th:src="${product.getImage()}" alt=""/>
+            <img th:class="product-image" th:src="${product.getImage()}" alt=""/>
             <div th:class="product-text">
-            <p th:class="name" th:text="${product.getCathegory()}" />
+            <p th:class="name" th:text="'Kategori: ' + ${product.getCathegory()}" />
             <p th:class="name" th:text="${product.getName()}"></p>
-            <p th:class="name" th:text="${product.getPrice()} + ' kr'"></p>
-            <p th:class="name" th:text="${product.getDescription()}"></p>
-            <form th:action="@{'/nicetohave/' + ${product.getId()}}" method="post">
-                <input type="submit" th:class="buy" value="KÖP"></input>
-            </form>
+            <p th:class="desc" th:text="${product.getDescription()}"></p>
+
+            <div th:class="bottom-div">
+                <p th:class="name" th:text="'Pris: ' + ${product.getPrice()} + ' kr'"></p>
+                <form th:action="@{'/nicetohave/' + ${product.getId()}}" method="post">
+                    <input type="submit" th:class="buy" value="KÖP"></input>
+                </form>
+            </div>
+
             </div>
         </div>
 

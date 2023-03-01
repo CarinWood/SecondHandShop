@@ -30,6 +30,11 @@ h1 a {
     color: white;
 }
 
+.a-tag {
+   text-decoration: none !important;
+    color: white !import;
+}
+
 .header {
     width: 100%;
     height: 70px;
@@ -80,6 +85,18 @@ li {
 
 .bxs-cart {
     margin-right: 5px;
+}
+
+.desc {
+    width: 300px;
+}
+
+.product-image {
+    width: 400px;
+    height: 700px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 
 img {
@@ -176,4 +193,10 @@ img {
     align-item: center;
     width: 100%;
     margin-top: 10px;
+}
+
+.bottom-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
