@@ -44,6 +44,17 @@ public class ProductRepository {
     }
 
 
+    public void removeById(int id) {
+        Product removeProduct = null;
+        for(Product product: products) {
+            if(product.getId() == id) {
+                removeProduct = product;
+            }
+        }
+        if(removeProduct != null) {
+            products.remove(removeProduct);
+        }
+    }
 }
 
 

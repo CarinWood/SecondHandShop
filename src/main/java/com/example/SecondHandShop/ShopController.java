@@ -27,12 +27,18 @@ public class ShopController {
     }
 
     @GetMapping("/nicetohave/delete/{id}")
-    String shopPostFunc(Model model, @PathVariable int id) {
+    String shopPostFunc(@PathVariable int id) {
         cart.removeById(id);
         System.out.println(cart.getItems());
         return "redirect:/nicetohave";
     }
 
+    @GetMapping("/nicetohave/paymentconfirmed/{id}")
+    String payment(@PathVariable int id) {
+        productRepository.removeById(id);
+        cart.removeById(id);
+        return "redirect:/nicetohave/paymentconfirmed";
+    }
     @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable int id) {
         model.addAttribute("product", productRepository.getProduct(id));
@@ -73,6 +79,12 @@ public class ShopController {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
         return "newpost";
+    }
+
+    @GetMapping("/nicetohave/paymentconfirmed")
+    String paymentconfirmed() {
+
+        return "paymentconfirmed";
     }
 
 
