@@ -119,3 +119,61 @@ img {
          justify-content: flex-start;
          align-items: center;
 }
+
+.customer-cart {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: -100%;
+    top: 12%;
+    background: lightgray;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.itemlist {
+    display: flex;
+}
+
+.itemlist li {
+    margin-bottom: 8px;
+    color: black;
+}
+
+.show {
+      right: 0;
+}
+
+.checkout-btn {
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+
+}
+
+.checkout-btn a {
+    text-decoration: none;
+    color: white;
+}
+
+.checkout-btn:active {
+    transform: translateY(2px);
+}
+
+.price {
+    font-weight: 800;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-item: center;
+    width: 100%;
+    margin-top: 10px;
+}

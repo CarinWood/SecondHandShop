@@ -7,11 +7,11 @@
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-<div class="header">
+<div class="header" th:fragment="header" >
 
     <h1>Nice to have</h1>
     <ul>
-        <li><a th:href="'/nicetohave/newpost'"/>Ny annons</li>
+        <li><a th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
         <li>Logga in</li>
         <li>Bli medlem</li>
     </ul>
@@ -20,10 +20,16 @@
 </div>
 
 <div th:class="customer-cart" >
-    <ul th:class="itemlist" th:each="item: ${cartArray}">
-        <li th:text="${item.name}"></li>
-        <li th:text="${item.price}"></li>
-    </ul>
+
+        <ul th:class="itemlist" th:each="item: ${cartArray}">
+            <li th:text="${item.name}"></li>
+            <li th:text="${item.price}"></li>
+            <a th:href="'/nicetohave/delete/'+${item.id}" th:class="delete-btn"><i class='bx bxs-trash'></i></a>
+
+        </ul>
+
+
+
     <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
     <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
 </div>

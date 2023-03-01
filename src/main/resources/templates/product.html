@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="/styles/product.css"   th:href="'/styles/product.css'" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/styles/style.css"   th:href="'/styles/style.css'" />
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
@@ -21,10 +22,21 @@
         <li>Logga in</li>
         <li>Bli medlem</li>
     </ul>
-    <button class="cart-btn"><i class='bx bxs-cart' th:text="${cartArray}"></i> Varukorg</button>
-
-
+    <button class="cart-btn" ><a th:href="'/nicetohave'"><i class='bx bxs-cart' th:text="${cartArray}"></i> Varukorg</a></button>
 </div>
+
+<!--Customer Cart:-->
+
+<div th:class="customer-cart" >
+    <ul th:class="itemlist" th:each="item: ${cartList}">
+        <li th:text="${item.name}"></li>
+        <li th:text="${item.price}"></li>
+    </ul>
+    <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
+    <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
+</div>
+
+
 
 
 <div th:class="productInfo">
@@ -47,5 +59,13 @@
 
 </article>
 </div>
+
+<script>
+    const cart = document.querySelector(".customer-cart");
+
+    function toggleCart() {
+      cart.classList.add("show");
+    }
+</script>
 </body>
 </html>

@@ -24,6 +24,15 @@ public class Cart {
        return customerItems;
     }
 
+    public Product getProduct(int id) {
+       for(Product product: customerItems) {
+           if(product.getId() == id) {
+               return product;
+           }
+       }
+       return null;
+    }
+
     public int getSum() {
        int sum = 0;
        for(Product product: customerItems) {
@@ -31,6 +40,19 @@ public class Cart {
        }
 
        return sum;
+    }
+
+    public void removeById(int id) {
+       Product removeProduct = null;
+       for(Product product: customerItems) {
+           if(product.getId() == id) {
+               removeProduct = product;
+           }
+       }
+       if(removeProduct != null) {
+           customerItems.remove(removeProduct);
+       }
+
     }
 
 }

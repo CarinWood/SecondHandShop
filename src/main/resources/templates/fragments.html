@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="stylesheet" href="/styles/style.css"   th:href="'/styles/style.css'" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header" th:fragment="header">
+
+  <h1>Nice to have</h1>
+  <ul>
+    <li><a th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
+    <li>Logga in</li>
+    <li>Bli medlem</li>
+  </ul>
+
+
+</div>
+<div th:class="customer-cart" th:fragment="cart" >
+  <ul th:class="itemlist" th:each="item: ${cartArray}">
+    <li th:text="${item.name}"></li>
+    <li th:text="${item.price}"></li>
+  </ul>
+  <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
+  <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
+</div>
+</body>
+</html>
