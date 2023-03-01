@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Nice to have</title>
   <link rel="stylesheet" href="/styles/style.css"   th:href="'/styles/style.css'" />
-
-  />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -22,11 +20,11 @@
 </div>
 
 <div th:class="customer-cart" >
-    <ul th:each="item: ${cartArray}">
+    <ul th:class="itemlist" th:each="item: ${cartArray}">
         <li th:text="${item.name}"></li>
         <li th:text="${item.price}"></li>
     </ul>
-    <p th:text="${sum}"></p>
+    <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
     <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
 </div>
 

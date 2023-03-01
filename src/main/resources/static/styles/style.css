@@ -140,6 +140,15 @@ img {
     border-radius: 5px;
 }
 
+.itemlist {
+    display: flex;
+}
+
+.itemlist li {
+    margin-bottom: 8px;
+    color: black;
+}
+
 .show {
       right: 0;
 }
