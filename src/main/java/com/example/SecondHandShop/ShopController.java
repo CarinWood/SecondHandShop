@@ -7,6 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.util.ArrayList;
+
 @Controller
 public class ShopController {
 
@@ -33,11 +35,22 @@ public class ShopController {
         return "redirect:/nicetohave";
     }
 
-    @GetMapping("/nicetohave/paymentconfirmed/{id}")
-    String payment(@PathVariable int id) {
-        productRepository.removeById(id);
-        cart.removeById(id);
-        return "redirect:/nicetohave/paymentconfirmed";
+    @GetMapping("/nicetohave/paymentconfirmed")
+    String payment() {
+        ArrayList<Product> copy = new ArrayList<>();
+        for(Product product : cart.getItems()) {
+            for (Product p : productRepository.products) {
+                if (product.getId() == p.getId()) {
+                    copy.add(product);
+
+                }
+            }
+        }
+        for(Product sak : copy) {
+            productRepository.removeById(sak.getId());
+            cart.removeById(sak.getId());
+        }
+        return "paymentconfirmed";
     }
     @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable int id) {
@@ -81,11 +94,6 @@ public class ShopController {
         return "newpost";
     }
 
-    @GetMapping("/nicetohave/paymentconfirmed")
-    String paymentconfirmed() {
-
-        return "paymentconfirmed";
-    }
 
 
 

@@ -27,6 +27,8 @@
     <p th:text="${item.getName()}"></p>
     <p th:text="${item.getPrice()}"></p>
 </div>
-<button th:each="item: ${cartArray}"><a th:href="'/nicetohave/paymentconfirmed/' + ${item.getId()}" th:class="pay">Betala</a></button>
+
+<button><a href="/nicetohave/paymentconfirmed" th:class="pay">Betala</a></button>
+
 </body>
 </html>
