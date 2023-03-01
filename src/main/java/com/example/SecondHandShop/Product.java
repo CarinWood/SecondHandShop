@@ -15,6 +15,7 @@ public class Product {
         this.image = image;
         this.cathegory = cathegory;
         this.id = id;
+
     }
 
     public String getName() {
