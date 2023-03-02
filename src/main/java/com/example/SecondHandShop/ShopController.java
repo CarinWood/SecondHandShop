@@ -42,7 +42,6 @@ public class ShopController {
             for (Product p : productRepository.products) {
                 if (product.getId() == p.getId()) {
                     copy.add(product);
-
                 }
             }
         }
