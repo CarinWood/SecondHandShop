@@ -46,6 +46,7 @@ public class ProductRepository {
         return null;
     }
 
+    // här sker buggen som skedde under demo - denna kollar inte om det nya id:t är upptaget
     public int createNewId() {
         return products.size();
     }
