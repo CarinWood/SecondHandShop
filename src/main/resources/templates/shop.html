@@ -12,8 +12,8 @@
     <h1>Nice to have</h1>
     <ul>
         <li><a th:class="newpost-a-tag" th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
-        <li>Logga in</li>
-        <li>Bli medlem</li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/login'">Logga in</a></li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/register'">Bli medlem</a></li>
     </ul>
     <button class="cart-btn" th:onclick="toggleCart()"><i class='bx bxs-cart' th:text="${cartSize}"></i>Varukorg</button>
 
