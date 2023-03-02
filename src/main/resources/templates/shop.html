@@ -20,18 +20,20 @@
 </div>
 
 <div th:class="customer-cart" >
-
+        <div th:class="cart-items">
         <ul th:class="itemlist" th:each="item: ${cartArray}">
-            <li th:text="${item.name}"></li>
-            <li th:text="${item.price}"></li>
+
+            <li th:class="product-name" th:text="${item.name}"></li>
+            <li th:class="product-price"th:text="${item.price} + ' kr'"></li>
             <a th:href="'/nicetohave/delete/'+${item.id}" th:class="delete-btn"><i class='bx bxs-trash'></i></a>
 
         </ul>
 
-
-
+        </div>
+    <div>
     <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
     <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
+    </div>
 </div>
 
 <div th:class="products">
