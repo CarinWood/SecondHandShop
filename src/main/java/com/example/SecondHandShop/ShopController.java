@@ -136,6 +136,22 @@ public class ShopController {
         return "failed";
     }
 
+    @GetMapping("/nicetohave/login")
+    String login() {
+        return "login";
+    }
+
+    @PostMapping("/nicetohave/login")
+    String loginPost(Model model, @RequestParam String username, @RequestParam String password) {
+        model.addAttribute("username", username);
+        model.addAttribute("password", password);
+        Boolean isLogedin = userRepository.loginUser(username, password);
+        if(isLogedin) {
+            return "userpage";
+        }
+        else { return "login"; }
+    }
+
 
 
 }

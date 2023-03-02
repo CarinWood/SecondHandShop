@@ -41,4 +41,15 @@ public class UserRepository {
         users.add(user);
         System.out.println("New user successfully created!");
     }
+
+    public boolean loginUser(String username, String password) {
+        for(User user : users) {
+            if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
