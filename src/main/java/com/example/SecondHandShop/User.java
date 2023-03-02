@@ -1,8 +1,12 @@
 package com.example.SecondHandShop;
 
-import org.springframework.stereotype.Service;
 
-@Service
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.annotation.SessionScope;
+
+
+@SessionScope
 public class User {
     String username;
     String password;
@@ -26,5 +30,17 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+
+    public String getName() {
+        return username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                '}';
     }
 }

@@ -13,14 +13,16 @@ import java.util.ArrayList;
 public class ShopController {
 
 
-    @Autowired
-    User user;
+ /*   @Autowired
+    User user;*/
 
     @Autowired
     ProductRepository productRepository;
     @Autowired
     Cart cart;
     Cathegory cathegory;
+    @Autowired
+    UserRepository userRepository;
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.getProducts());
@@ -102,12 +104,35 @@ public class ShopController {
     }
 
     @PostMapping("/nicetohave/register")
-    String postregisterfunc(Model model, @RequestParam String username, @RequestParam String password) {
+    String postregisterfunc(Model model, @RequestParam String password, @RequestParam String username) {
 
-        user = new User(username, password);
-        return "register";
+
+        int arraySizeBefore = userRepository.getUsers().size();
+        userRepository.createUser(username, password);
+        int arraySizeAfter = userRepository.getUsers().size();
+
+        if(arraySizeAfter > arraySizeBefore) {
+            return "userpage";
+        }
+        else {
+
+            return "failed";
+        }
+
     }
 
+
+    @GetMapping("/nicetohave/userpage")
+    String userpageFunc(Model model) {
+
+
+        return "userpage";
+    }
+
+    @GetMapping("/nicetohave/failed")
+    String failedFunc() {
+        return "failed";
+    }
 
 
 
