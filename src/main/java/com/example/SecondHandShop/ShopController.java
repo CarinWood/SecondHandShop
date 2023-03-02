@@ -9,6 +9,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 
+//HEJ HEJ
 @Controller
 public class ShopController {
 
