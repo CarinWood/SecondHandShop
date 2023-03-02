@@ -75,7 +75,7 @@ public class ShopController {
 
         model.addAttribute("cartArray", cart.getItems());
         model.addAttribute("cartSize", cart.getItems().size());
-
+        model.addAttribute("sum", cart.getSum());
 
         return "checkout";
 

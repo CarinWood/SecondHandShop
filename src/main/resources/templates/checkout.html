@@ -23,12 +23,22 @@
 
 
 </div>
-<div th:class="checkout-products" th:each="item: ${cartArray}">
-    <p th:text="${item.getName()}"></p>
-    <p th:text="${item.getPrice()}"></p>
+<div>
+    <h1 th:class="therealheader">Välkommen till din checkout</h1>
 </div>
+<div th:class="productsalign">
+<div th:class="checkout-products" th:each="item: ${cartArray}">
+    <img th:class="product-image" th:src="${item.getImage()}" alt=""/>
+    <p th:class="name" th:text="${item.getName()}"></p>
+    <p th:class="name" th:text="${item.getPrice()} + 'kr'"></p>
+</div>
+</div>
+<div th:class="summa">
+    Din summa blev: [[${sum}]]kr, för att gå vidare klicka nedan.
+</div>
+<button th:class="buy" ><a href="/nicetohave/paymentconfirmed">Betala</a></button>
 
-<button><a href="/nicetohave/paymentconfirmed" th:class="pay">Betala</a></button>
+
 
 </body>
 </html>

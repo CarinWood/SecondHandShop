@@ -13,6 +13,8 @@ body {
     display: flex;
     flex-direction: column;
     border-radius: 1px solid pink;
+    align-items: center;
+    background-color: #d6e4e4;
 }
 
    a-tag {
@@ -82,7 +84,57 @@ li {
 }
 
 .checkout-products {
-    margin-top: 300px;
+    margin-top: 150px;
     color: black;
     font-size: 30px;
+    display: flex;
+            flex-direction: column;
+             font-family: 'Tilt Neon', cursive;
+}
+
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.productsalign {
+display: flex;
+flex-direction: row;
+}
+
+.therealheader {
+display: flex;
+color: black;
+margin-top: 120px;
+font-family: 'Tilt Neon', cursive;
+}
+
+.buy {
+margin-top: 20px;
+    background-color: teal;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     padding: 8px;
+     font-size: 18px;
+     letter-spacing: 0.5px;
+     cursor: pointer;
+}
+
+.summa {
+display: flex;
+color: black;
+margin-top: 100px;
+font-family: 'Tilt Neon', cursive;
 }
