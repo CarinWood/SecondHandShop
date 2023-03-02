@@ -14,6 +14,9 @@ public class ShopController {
 
 
     @Autowired
+    User user;
+
+    @Autowired
     ProductRepository productRepository;
     @Autowired
     Cart cart;
@@ -42,7 +45,6 @@ public class ShopController {
             for (Product p : productRepository.products) {
                 if (product.getId() == p.getId()) {
                     copy.add(product);
-
                 }
             }
         }
@@ -92,6 +94,19 @@ public class ShopController {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
         return "newpost";
+
+    }
+
+    @GetMapping("/nicetohave/register")
+    String registerFunc() {
+        return "register";
+    }
+
+    @PostMapping("/nicetohave/register")
+    String postregisterfunc(Model model, @RequestParam String username, @RequestParam String password) {
+
+        user = new User(username, password);
+        return "register";
     }
 
 
