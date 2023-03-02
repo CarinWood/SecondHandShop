@@ -4,19 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 0px;
             margin: 0px;
+            font-family: 'Tilt Neon', cursive;
         }
+
+        .register-headline {
+            color: teal;
+        }
+
         .register-div {
             margin-top: 50px;
-            width: 500px;
-            height: 400px;
+            width: 400px;
+            height: 300px;
             border-radius: 5px;
             border: 1px solid teal;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-btn {
+            background: teal;
+            color: white;
+            width: 80px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .register-form {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -25,11 +48,14 @@
     </style>
 </head>
 <body>
+<h2 th:class="register-headline">Registrera ny användare:</h2>
 <div th:class="register-div">
-    <form action="/nicetohave/register" method="post">
+    <form action="/nicetohave/register" method="post" th:class="register-form">
+        <span>Användarnamn: </span>
         <input type="text" name="username">
+        <span>Lösenord: </span>
         <input type="text" name="password">
-        <input type="submit">
+        <input th:class="register-btn" type="submit">
     </form>
 
 </div>
