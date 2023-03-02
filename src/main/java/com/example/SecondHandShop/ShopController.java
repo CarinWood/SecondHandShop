@@ -79,7 +79,7 @@ public class ShopController {
 
         model.addAttribute("cartArray", cart.getItems());
         model.addAttribute("cartSize", cart.getItems().size());
-
+        model.addAttribute("sum", cart.getSum());
 
         return "checkout";
 
@@ -96,6 +96,7 @@ public class ShopController {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
         return "newpost";
+
     }
 
     @GetMapping("/nicetohave/register")
