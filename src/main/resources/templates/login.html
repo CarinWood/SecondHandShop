@@ -1,16 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" href="/styles/style.css"   th:href="'/styles/style.css'" />
+    <link rel="stylesheet" href="/styles/login.css"   th:href="'/styles/login.css'" />
 </head>
 <body>
-  <h1>Login</h1>
+<div class="header" th:fragment="header">
 
-  <form action="/nicetohave/login" method="POST">
+    <h1><a th:class="newpost-a-tag" href="/nicetohave">Nice to have</a></h1>
+    <ul>
+        <li><a th:class="newpost-a-tag" th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/login'">Logga in</a></li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/register'">Bli medlem</a></li>
+    </ul>
+</div>
+<div th:class="customer-cart" th:fragment="cart" >
+    <ul th:class="itemlist" th:each="item: ${cartArray}">
+        <li th:text="${item.name}"></li>
+        <li th:text="${item.price}"></li>
+    </ul>
+    <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
+    <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
+</div>
+
+<div class="main-form">
+  <h1 class="h1-login">Login</h1>
+
+  <form action="/nicetohave/login" method="POST" class="loginform">
     <input type="text" name="username" placeholder="Användarnamn">
     <input type="password" name="password" placeholder="Lösenord">
     <input type="submit">
   </form>
+</div>
 </body>
 </html>

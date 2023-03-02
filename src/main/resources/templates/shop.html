@@ -38,7 +38,7 @@
 
 <div th:class="products">
     <article th:each="product: ${products}" th:class="product">
-        <img th:class="name" th:src="${product.getImage()}" alt=""/>
+        <a th:href="'/nicetohave/' + ${product.getId()}"><img th:class="name" th:src="${product.getImage()}" alt=""></a>
         <p th:class="name"><a th:href="'/nicetohave/' + ${product.getId()}">[[${product.getName()}]]</a></p>
 
 
