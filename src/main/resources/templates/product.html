@@ -35,6 +35,11 @@
             align-items: flex-start!important;
         }
 
+        .button-a-tag {
+            text-decoration: none;
+            color: black;
+        }
+
 
 
 
@@ -49,7 +54,7 @@
         <li>Logga in</li>
         <li>Bli medlem</li>
     </ul>
-    <button class="cart-btn" ><a th:href="'/nicetohave'"><i class='bx bxs-cart' th:text="${cartArray}"></i> Varukorg</a></button>
+    <button class="cart-btn" ><a th:class="button-a-tag" th:href="'/nicetohave'"><i class='bx bxs-cart' th:text="${cartArray}"></i> Varukorg</a></button>
 </div>
 
 <!--Customer Cart:-->
