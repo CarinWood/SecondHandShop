@@ -105,7 +105,7 @@ public class ShopController {
     @PostMapping("/nicetohave/register")
     String postregisterfunc(Model model, @RequestParam String username, @RequestParam String password) {
 
-        user = new User(username, password)
+        user = new User(username, password);
         return "register";
     }
 
