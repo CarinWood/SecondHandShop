@@ -21,7 +21,7 @@ public class ProductRepository {
         products.add(new Product("Skinnjacka", "Fint skick, ingen defekt. svart med silverdetaljer. Storlek 36", 450, "/images/jacka.jpg", Cathegory.KLÄDER, createNewId()));
         products.add(new Product("Yamaha DT", "Årsmodell 1997, gått 1200 mil", 10000, "/images/moped.png", Cathegory.FORDON, createNewId()));
         products.add(new Product("Biljardbord", "Säljer detta fina bord med lite fläckar på. Pris kan diskuteras", 5000, "/images/biljardbord.png", Cathegory.SPORT, createNewId()));
-        products.add(new Product("Gul Klänning", "Omtalad klänning, lite för gul för min smak.", 150, "/images/blåranding klänning.png", Cathegory.KLÄDER, createNewId()));
+        products.add(new Product("Gul Klänning", "Omtalad klänning, lite för gul för min smak.", 150, "/images/dress.png", Cathegory.KLÄDER, createNewId()));
         products.add(new Product("Settlers of Catan", "Mycket roligt spel, funkar för de flesta åldrar!", 400, "/images/catan.png", Cathegory.LEKSAKER, createNewId()));
         products.add(new Product("Pokémonkort", "Väldigt exklusivt kort som har fått sig några kyssar i flyttar.", 40000, "/images/Charizard.png", Cathegory.LEKSAKER, createNewId()));
         products.add(new Product("Röd jacka", "Fin jacka som blivit för liten för mig.", 600, "/images/Jacka röd.png", Cathegory.KLÄDER, createNewId()));
