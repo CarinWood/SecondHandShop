@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Payment Confirmed</title>
+    <link rel="stylesheet" href="/styles/paymentconfirmed.css"   th:href="'/styles/paymentconfirmed.css'" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-  <h1>Tack för ditt köp!</h1>
+<div class="header">
+
+    <h1><a th:class="a-tag" th:href="'/nicetohave'">Nice to have</a></h1>
+    <ul>
+        <li><a th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
+        <li>Logga in</li>
+        <li>Bli medlem</li>
+    </ul>
+
+</div>
+
+<div>
+
+<a th:href="'/nicetohave'"><img src="/images/nicetohave.jpg" class="center"></a>
+
+    <h2>Tack för ditt köp!</h2>
+</div>
 </body>
 </html>
