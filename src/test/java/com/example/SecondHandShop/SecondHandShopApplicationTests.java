@@ -31,4 +31,22 @@ class SecondHandShopApplicationTests {
 		Assertions.assertEquals(160, cart.getSum());
 
 	}
+
+	@Test void removeCustomerItemById(){
+		Cart cart = new Cart();
+		ArrayList<Product> list = cart.getItems();
+		list.add(new Product("Product1", "Desc1", 20, "image", Cathegory.HEM, 60));
+		list.add(new Product("Product2", "Desc2", 20, "image", Cathegory.HEM, 52));
+		list.add(new Product("Product3", "Desc3", 20, "image", Cathegory.HEM, 54));
+
+		// remove item 1 in list
+		cart.removeById(60);
+		Assertions.assertEquals(2, list.size());
+
+		// remove item 2 in list
+		cart.removeById(52);
+		Assertions.assertEquals(1, list.size());
+
+	}
+
 }
