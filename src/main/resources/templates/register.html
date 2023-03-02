@@ -4,32 +4,72 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 0px;
             margin: 0px;
+            font-family: 'Tilt Neon', cursive;
         }
+
+        .register-headline {
+           margin-top: 40px;
+            color: teal;
+        }
+
         .register-div {
-            margin-top: 50px;
-            width: 500px;
-            height: 400px;
+            margin-top: 20px;
+            width: 400px;
+            height: 300px;
             border-radius: 5px;
-            border: 1px solid teal;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .register-btn {
+            background: teal;
+            color: white;
+            width: 80px;
+            border: none;
+            border-radius: 5px;
+            padding: 6px;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        .register-form {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
+
+        .text {
+            width: 180px;
+            color: teal;
+        }
+
+        input {
+            margin-top: -8px;
+            width: 180px;
+        }
     </style>
 </head>
 <body>
+<h2 th:class="register-headline">Registrera ny användare:</h2>
 <div th:class="register-div">
-    <form action="/nicetohave/register" method="post">
+    <form action="/nicetohave/register" method="post" th:class="register-form">
+        <p th:class="text">Användarnamn:</p>
         <input type="text" name="username">
+        <p th:class="text">Lösenord: </p>
         <input type="text" name="password">
-        <input type="submit">
+        <input th:class="register-btn" type="submit">
     </form>
 
 </div>
