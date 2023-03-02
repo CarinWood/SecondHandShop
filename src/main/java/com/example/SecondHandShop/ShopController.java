@@ -100,6 +100,8 @@ public class ShopController {
 
     }
 
+    //hej
+
     @GetMapping("/nicetohave/register")
     String registerFunc() {
         return "register";
