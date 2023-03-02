@@ -12,6 +12,7 @@ body {
     border-radius: 1px solid pink;
     font-family: 'Tilt Neon', cursive;
     overflow-x: hidden;
+    position: relative;
 }
 
 h1 {
@@ -59,9 +60,18 @@ li {
 
 h2 {
     position: absolute;
-    top: 20%;
+    top: 150px;
     left: 50%;
     width: 300px;
     margin-left: -150px;
     color: teal;
+}
+
+img {
+    position: absolute;
+    top: 250px;
+    left: 50%;
+    width: 500px;
+    margin-left: -250px;
+
 }

@@ -14,9 +14,11 @@
         <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/login'">Logga in</a></li>
         <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/register'">Bli medlem</a></li>
     </ul>
+    <h2 th:text="'Välkommen ' + ${user}">Välkommen!</h2>
+    <a th:href="'/nicetohave'"><img src="/images/nicetohave.jpg" class="center"></a>
 
 </div>
 
-<h2 th:text="'Välkommen ' + ${user}">Välkommen!</h2>
+
 </body>
 </html>
