@@ -51,5 +51,12 @@ public class UserRepository {
         return false;
     }
 
+    public String getUsernameOfLastRegisterdUsers() {
+        int number = users.size()-1;
+
+        System.out.println(users.get(number).getUsername());
+        return users.get(number).getUsername();
+    }
+
 
 }

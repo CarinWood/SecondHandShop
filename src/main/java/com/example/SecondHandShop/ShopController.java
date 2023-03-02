@@ -116,7 +116,7 @@ public class ShopController {
         int arraySizeAfter = userRepository.getUsers().size();
 
         if(arraySizeAfter > arraySizeBefore) {
-            return "userpage";
+            return "redirect:/nicetohave/userpage/0";
         }
         else {
 
@@ -126,9 +126,10 @@ public class ShopController {
     }
 
 
-    @GetMapping("/nicetohave/userpage")
-    String userpageFunc(Model model) {
-
+    @GetMapping("/nicetohave/userpage/{user}")
+    String userpageFunc(Model model, @PathVariable String user) {
+    user = userRepository.getUsernameOfLastRegisterdUsers();
+    model.addAttribute("user", user);
 
         return "userpage";
     }
@@ -143,10 +144,11 @@ public class ShopController {
         return "login";
     }
 
-    @PostMapping("/nicetohave/login")
-    String loginPost(Model model, @RequestParam String username, @RequestParam String password) {
+    @PostMapping("/nicetohave/login/{user}")
+    String loginPost(Model model, @RequestParam String username, @RequestParam String password, @PathVariable String user) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
+        user = username;
         Boolean isLogedin = userRepository.loginUser(username, password);
         if(isLogedin) {
             return "userpage";
