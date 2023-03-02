@@ -3,8 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Min sida</title>
+    <link rel="stylesheet" href="/styles/userpage.css" th:href="'/styles/userpage.css'"/>
 </head>
 <body>
-<h1 th:text="${user}">Välkommen!</h1>
+<div class="header" th:fragment="header" >
+
+    <h1>Nice to have</h1>
+    <ul>
+        <li><a th:class="newpost-a-tag" th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/login'">Logga in</a></li>
+        <li> <a th:class="newpost-a-tag" th:href="'/nicetohave/register'">Bli medlem</a></li>
+    </ul>
+
+</div>
+
+<h2 th:text="'Välkommen ' + ${user}">Välkommen!</h2>
 </body>
 </html>
