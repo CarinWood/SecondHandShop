@@ -7,13 +7,34 @@
     <link rel="stylesheet" href="/styles/newpost.css"   th:href="'/styles/newpost.css'" />
 </head>
 <body>
-<div th:replace="fragments :: header"></div>
-<div th:replace="fragments :: cart"></div>
+
+<div class="header" th:fragment="header">
+
+    <h1><a href="/nicetohave">Nice to have</a></h1>
+    <ul>
+        <li><a th:href="'/nicetohave/newpost'"/>Ny annons</a></li>
+        <li>Logga in</li>
+        <li>Bli medlem</li>
+    </ul>
+
+
+</div>
+<div th:class="customer-cart" th:fragment="cart" >
+    <ul th:class="itemlist" th:each="item: ${cartArray}">
+        <li th:text="${item.name}"></li>
+        <li th:text="${item.price}"></li>
+    </ul>
+    <p th:text="'Totalt: ' + ${sum} + ' kr'"></p>
+    <button class="checkout-btn"><a th:href="'/nicetohave/checkout'">Checkout</a></button>
+</div>
+
+<div class="fullform">
+<h1 class="h1-newpost">Lägg till Annons</h1>
     <form th:class="newpost-form" action="/nicetohave/newpost" method="POST">
       <input type="text" name="name" placeholder="Titel">
-      <input type="text" name="description" placeholder="Beskrivning">
+      <input type="text" class="description"   name="description" placeholder="Beskriv ditt föremål">
       <input type="number" name="price" placeholder="Pris">
-
+      <input type="text" name="image" placeholder="URL till bild">
         <select name="cathegory">
             <option value="LEKSAKER">Leksaker</option>
             <option value="TEKNIK">Teknik</option>
@@ -22,10 +43,9 @@
             <option value="HEM">Hem</option>
             <option value="SPORT">Sport</option>
         </select>
-
-      <input type="text" name="image" placeholder="URL till bild">
         <input type="submit">
     </form>
+</div>
 <script>
     const cart = document.querySelector(".customer-cart");
 

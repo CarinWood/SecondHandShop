@@ -92,6 +92,7 @@ public class ShopController {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
         return "newpost";
+
     }
 
 
