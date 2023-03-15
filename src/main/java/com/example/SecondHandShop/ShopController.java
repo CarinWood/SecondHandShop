@@ -64,6 +64,7 @@ public class ShopController {
         model.addAttribute("cartArray", cart.getItems().size());
         model.addAttribute("cartList", cart.getItems());
         model.addAttribute("sum", cart.getSum());
+        System.out.println(productRepository.products);
         return "product";
     }
 
@@ -77,7 +78,6 @@ public class ShopController {
 
     @GetMapping("/nicetohave/checkout")
     String checkoutFunc(Model model) {
-
         model.addAttribute("cartArray", cart.getItems());
         model.addAttribute("cartSize", cart.getItems().size());
         model.addAttribute("sum", cart.getSum());
@@ -96,6 +96,7 @@ public class ShopController {
     String newpostpost(Model model, @RequestParam String name, String description, int price, String image, String cathegory) {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
+        System.out.println(productRepository.products);
         return "newpost";
 
     }*/
@@ -109,8 +110,6 @@ public class ShopController {
 
     @PostMapping("/nicetohave/register")
     String postregisterfunc(Model model, @RequestParam String password, @RequestParam String username) {
-
-
         int arraySizeBefore = userRepository.getUsers().size();
         userRepository.createUser(username, password);
         int arraySizeAfter = userRepository.getUsers().size();
@@ -130,7 +129,6 @@ public class ShopController {
     String userpageFunc(Model model, @PathVariable String user) {
     user = userRepository.getUsernameOfLastRegisterdUsers();
     model.addAttribute("user", user);
-
         return "userpage";
     }
 
