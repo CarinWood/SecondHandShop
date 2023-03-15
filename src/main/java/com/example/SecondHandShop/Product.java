@@ -1,21 +1,29 @@
 package com.example.SecondHandShop;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Product {
     String name;
     String description;
     int price;
     String image;
-    Cathegory cathegory;
+
+    Long cathegory_id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    public Product(String name, String description, int price, String image, Cathegory cathegory, int id) {
+    public Product() {
+    }
+
+    public Product(String name, String description, int price, String image, Long cathegory_id, int id) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.image = image;
-        this.cathegory = cathegory;
+        this.cathegory_id = cathegory_id;
         this.id = id;
-
     }
 
     public String getName() {
@@ -50,12 +58,12 @@ public class Product {
         this.image = image;
     }
 
-    public Cathegory getCathegory() {
-        return cathegory;
+    public Long getCathegory() {
+        return cathegory_id;
     }
 
-    public void setCathegory(Cathegory cathegory) {
-        this.cathegory = cathegory;
+    public void setCathegory(Long cathegory_id) {
+        this.cathegory_id = cathegory_id;
     }
 
     public int getId() {
@@ -66,15 +74,5 @@ public class Product {
         this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Product{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", image='" + image + '\'' +
-                ", cathegory=" + cathegory +
-                ", id=" + id +
-                '}';
-    }
+
 }

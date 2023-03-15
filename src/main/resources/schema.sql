@@ -1,0 +1,4 @@
+CREATE TABLE Cathegory(
+ID Long AUTO_INCREMENT PRIMARY KEY,
+name varchar
+);
