@@ -12,6 +12,7 @@ public class SecondHandShopApplication {
 
 		SpringApplication.run(SecondHandShopApplication.class, args);
 
+
 	}
 
 }

@@ -8,8 +8,9 @@ public class Product {
     String description;
     int price;
     String image;
+    @ManyToOne
+    Cathegory cathegory;
 
-    Long cathegory_id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -17,14 +18,16 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name, String description, int price, String image, Long cathegory_id, Long id) {
+    public Product(String name, String description, int price, String image, Cathegory cathegory, Long id) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.image = image;
-        this.cathegory_id = cathegory_id;
+        this.cathegory = cathegory;
         this.id = id;
     }
+
+
 
     public String getName() {
         return name;
@@ -58,12 +61,12 @@ public class Product {
         this.image = image;
     }
 
-    public Long getCathegory() {
-        return cathegory_id;
+    public Cathegory getCathegory() {
+        return cathegory;
     }
 
-    public void setCathegory(Long cathegory_id) {
-        this.cathegory_id = cathegory_id;
+    public void setCathegory(Cathegory cathegory) {
+        this.cathegory = cathegory;
     }
 
     public Long getId() {

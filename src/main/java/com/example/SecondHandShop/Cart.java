@@ -1,21 +1,24 @@
 package com.example.SecondHandShop;
 
+import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
-
 @Service
 @SessionScope
 public class Cart {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     private ArrayList<Product> customerItems = new ArrayList<>();
 
    public Cart() {
-//        this.customerItems = new ArrayList<>();
+
     }
 
 

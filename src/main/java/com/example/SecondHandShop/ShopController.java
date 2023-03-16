@@ -18,19 +18,21 @@ public class ShopController {
     User user;*/
 
     @Autowired
-    ProductRepository productRepository;
+    ProductRepo productRepository;
+
     @Autowired
     Cart cart;
+
     Cathegory cathegory;
     @Autowired
     UserRepository userRepository;
+
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
-        model.addAttribute("products", productRepository.getProducts());
+        model.addAttribute("products", productRepository.findAll());
         model.addAttribute("cartSize", cart.getItems().size());
         model.addAttribute("cartArray", cart.getItems());
-        model.addAttribute("sum", cart.getSum());
-
+        model.addAttribute("sum", cart.getSum()); // FEL
         return "shop";
     }
 
@@ -41,23 +43,23 @@ public class ShopController {
         return "redirect:/nicetohave";
     }
 
-    @GetMapping("/nicetohave/paymentconfirmed")
+  /*  @GetMapping("/nicetohave/paymentconfirmed")
     String payment() {
         ArrayList<Product> copy = new ArrayList<>();
-        for(Product product : cart.getItems()) {
-            for (Product p : productRepository.products) {
+        for (Product product : cart.getItems()) {
+            for (Product p : productRepository.findAll()) {
                 if (product.getId() == p.getId()) {
                     copy.add(product);
                 }
             }
-        }
-        for(Product sak : copy) {
+        }*/
+/*        for(Product sak : copy) {
             productRepository.removeById(sak.getId());
             cart.removeById(sak.getId());
         }
         return "paymentconfirmed";
-    }
-    @PostMapping("/nicetohave/{id}")
+    }*/
+/*    @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable Long id) {
         model.addAttribute("product", productRepository.getProduct(id));
         cart.getItems().add(productRepository.getProduct(id));
@@ -84,7 +86,7 @@ public class ShopController {
 
         return "checkout";
 
-    }
+    }*/
 
    /* @GetMapping("/nicetohave/newpost")
     String newpost(Model model) {
@@ -101,9 +103,9 @@ public class ShopController {
 
     }*/
 
-    //hej
+        //hej
 
-    @GetMapping("/nicetohave/register")
+/*    @GetMapping("/nicetohave/register")
     String registerFunc() {
         return "register";
     }
@@ -152,8 +154,9 @@ public class ShopController {
             return "userpage";
         }
         else { return "login"; }
-    }
+    }*/
 
-
-
+/*
+    }*/
 }
+
