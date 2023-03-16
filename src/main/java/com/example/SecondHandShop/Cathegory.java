@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 public class Cathegory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Long id;
     private String name;
 

@@ -37,7 +37,7 @@ public class ProductRepository {
         return this.products;
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(Long id) {
         for(Product product: products) {
             if(product.getId() == id) {
                 return product;
@@ -52,7 +52,7 @@ public class ProductRepository {
     }
 
 
-    public void removeById(int id) {
+    public void removeById(Long id) {
         Product removeProduct = null;
         for(Product product: products) {
             if(product.getId() == id) {

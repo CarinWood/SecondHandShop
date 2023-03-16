@@ -12,12 +12,12 @@ public class Product {
     Long cathegory_id;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    Long id;
 
     public Product() {
     }
 
-    public Product(String name, String description, int price, String image, Long cathegory_id, int id) {
+    public Product(String name, String description, int price, String image, Long cathegory_id, Long id) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -66,11 +66,11 @@ public class Product {
         this.cathegory_id = cathegory_id;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

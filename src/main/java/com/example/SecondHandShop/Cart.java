@@ -24,7 +24,7 @@ public class Cart {
        return customerItems;
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(Long id) {
        for(Product product: customerItems) {
            if(product.getId() == id) {
                return product;
@@ -42,7 +42,7 @@ public class Cart {
        return sum;
     }
 
-    public void removeById(int id) {
+    public void removeById(Long id) {
        Product removeProduct = null;
        for(Product product: customerItems) {
            if(product.getId() == id) {
