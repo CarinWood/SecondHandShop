@@ -76,9 +76,9 @@
 
 
         <div th:class="product-div">
-            <img th:class="product-image" th:src="${product.getImage()}" alt=""/>
+         <img th:class="product-image" th:src="${product.getImage()}" alt=""/>
             <div th:class="product-text">
-            <p th:class="name" th:text="'Kategori: ' + ${product.getCathegory()}" />
+            <p th:class="name" th:text="'Kategori: ' + ${product.getCathegory().name}" />
             <p th:class="name" th:text="${product.getName()}"></p>
             <p th:class="desc" th:text="${product.getDescription()}"></p>
 

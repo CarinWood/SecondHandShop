@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
+import java.util.List;
 
 //HEJ HEJ
 @Controller
@@ -23,7 +24,6 @@ public class ShopController {
     @Autowired
     Cart cart;
 
-    Cathegory cathegory;
     @Autowired
     UserRepository userRepository;
 
@@ -32,7 +32,7 @@ public class ShopController {
         model.addAttribute("products", productRepository.findAll());
         model.addAttribute("cartSize", cart.getItems().size());
         model.addAttribute("cartArray", cart.getItems());
-        model.addAttribute("sum", cart.getSum()); // FEL
+        model.addAttribute("sum", cart.getSum());
         return "shop";
     }
 
@@ -59,24 +59,28 @@ public class ShopController {
         }
         return "paymentconfirmed";
     }*/
-/*    @PostMapping("/nicetohave/{id}")
+
+
+/*    Dog dog = repository.findById(1L).get();
+		Assertions.assertEquals("Pluto", dog.getName());*/
+    @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable Long id) {
-        model.addAttribute("product", productRepository.getProduct(id));
-        cart.getItems().add(productRepository.getProduct(id));
+        Product product = productRepository.findById(id).get();
+        model.addAttribute("product", productRepository.findById(id).get());
+        cart.getItems().add(productRepository.findById(id).get());
         model.addAttribute("cartArray", cart.getItems().size());
         model.addAttribute("cartList", cart.getItems());
         model.addAttribute("sum", cart.getSum());
-        System.out.println(productRepository.products);
         return "product";
     }
 
     @GetMapping("/nicetohave/{id}")
     String getProductFunc(Model model, @PathVariable Long id) {
-        model.addAttribute("product", productRepository.getProduct(id));
+        model.addAttribute("product", productRepository.findById(id).get());
         model.addAttribute("cartArray", cart.getItems().size());
-
         return "product";
     }
+    /*
 
     @GetMapping("/nicetohave/checkout")
     String checkoutFunc(Model model) {
@@ -105,11 +109,11 @@ public class ShopController {
 
         //hej
 
-/*    @GetMapping("/nicetohave/register")
+   @GetMapping("/nicetohave/register")
     String registerFunc() {
         return "register";
     }
-
+/*
     @PostMapping("/nicetohave/register")
     String postregisterfunc(Model model, @RequestParam String password, @RequestParam String username) {
         int arraySizeBefore = userRepository.getUsers().size();

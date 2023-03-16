@@ -15,7 +15,7 @@ public class Cart {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private ArrayList<Product> customerItems = new ArrayList<>();
+    public ArrayList<Product> customerItems = new ArrayList<>();
 
    public Cart() {
 
