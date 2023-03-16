@@ -35,7 +35,7 @@ public class ShopController {
     }
 
     @GetMapping("/nicetohave/delete/{id}")
-    String shopPostFunc(@PathVariable int id) {
+    String shopPostFunc(@PathVariable Long id) {
         cart.removeById(id);
         System.out.println(cart.getItems());
         return "redirect:/nicetohave";
@@ -58,7 +58,7 @@ public class ShopController {
         return "paymentconfirmed";
     }
     @PostMapping("/nicetohave/{id}")
-    String postFunc(Model model, @PathVariable int id) {
+    String postFunc(Model model, @PathVariable Long id) {
         model.addAttribute("product", productRepository.getProduct(id));
         cart.getItems().add(productRepository.getProduct(id));
         model.addAttribute("cartArray", cart.getItems().size());
@@ -69,7 +69,7 @@ public class ShopController {
     }
 
     @GetMapping("/nicetohave/{id}")
-    String getProductFunc(Model model, @PathVariable int id) {
+    String getProductFunc(Model model, @PathVariable Long id) {
         model.addAttribute("product", productRepository.getProduct(id));
         model.addAttribute("cartArray", cart.getItems().size());
 
@@ -86,20 +86,20 @@ public class ShopController {
 
     }
 
-    @GetMapping("/nicetohave/newpost")
+   /* @GetMapping("/nicetohave/newpost")
     String newpost(Model model) {
         model.addAttribute("cathegory", Cathegory.values());
         return "newpost";
-    }
+    }*/
 
-    @PostMapping("/nicetohave/newpost")
+   /* @PostMapping("/nicetohave/newpost")
     String newpostpost(Model model, @RequestParam String name, String description, int price, String image, String cathegory) {
         Cathegory c = Cathegory.valueOf(cathegory);
         productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
         System.out.println(productRepository.products);
         return "newpost";
 
-    }
+    }*/
 
     //hej
 

@@ -11,7 +11,7 @@ public class ProductRepository {
     ArrayList<Product> products;
 
 
-    public ProductRepository() {
+    /*public ProductRepository() {
 
         this.products = new ArrayList<>();
         products.add(new Product("My little pony", "Fin häst från 80-talet! Mycket gott skick! Mint condition", 100, "/images/pony.jpg", Cathegory.LEKSAKER, createNewId()));
@@ -28,7 +28,7 @@ public class ProductRepository {
         products.add(new Product("Padelrack", "Mycket fint padelrack, säljer då jag blivit för bra och vill testa något nytt.", 1200, "/images/padelrack.png", Cathegory.SPORT, createNewId()));
         products.add(new Product("Barnskidor, Head", "Säljer dessa underbara skidor som mitt barn haft mycket nöje för. Passar bäst för längden 140-160cm", 800, "/images/skidor.png", Cathegory.SPORT, createNewId()));
 
-    }
+    }*/
 
 
 
@@ -37,7 +37,7 @@ public class ProductRepository {
         return this.products;
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(Long id) {
         for(Product product: products) {
             if(product.getId() == id) {
                 return product;
@@ -52,7 +52,7 @@ public class ProductRepository {
     }
 
 
-    public void removeById(int id) {
+    public void removeById(Long id) {
         Product removeProduct = null;
         for(Product product: products) {
             if(product.getId() == id) {
