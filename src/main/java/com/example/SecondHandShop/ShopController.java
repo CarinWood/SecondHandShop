@@ -27,6 +27,9 @@ public class ShopController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    CathegoryRepo cathegoryRepo;
+
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.findAll());
@@ -43,7 +46,7 @@ public class ShopController {
         return "redirect:/nicetohave";
     }
 
-  /*  @GetMapping("/nicetohave/paymentconfirmed")
+    @GetMapping("/nicetohave/paymentconfirmed")
     String payment() {
         ArrayList<Product> copy = new ArrayList<>();
         for (Product product : cart.getItems()) {
@@ -52,19 +55,14 @@ public class ShopController {
                     copy.add(product);
                 }
             }
-        }*/
-
-
-/*        for(Product sak : copy) {
-            productRepository.removeById(sak.getId());
+        }
+        for(Product sak : copy) {
+            productRepository.deleteById(sak.getId());
             cart.removeById(sak.getId());
         }
         return "paymentconfirmed";
-    }*/
+    }
 
-
-/*    Dog dog = repository.findById(1L).get();
-		Assertions.assertEquals("Pluto", dog.getName());*/
     @PostMapping("/nicetohave/{id}")
     String postFunc(Model model, @PathVariable Long id) {
         Product product = productRepository.findById(id).get();
@@ -82,7 +80,7 @@ public class ShopController {
         model.addAttribute("cartArray", cart.getItems().size());
         return "product";
     }
-    /*
+
 
     @GetMapping("/nicetohave/checkout")
     String checkoutFunc(Model model) {
@@ -93,22 +91,23 @@ public class ShopController {
         return "checkout";
 
     }
-    */
 
-   /* @GetMapping("/nicetohave/newpost")
+    @GetMapping("/nicetohave/newpost")
     String newpost(Model model) {
-        model.addAttribute("cathegory", Cathegory.values());
+        model.addAttribute("cathegory", cathegoryRepo.findAll());
         return "newpost";
-    }*/
+    }
 
-   /* @PostMapping("/nicetohave/newpost")
-    String newpostpost(Model model, @RequestParam String name, String description, int price, String image, String cathegory) {
-        Cathegory c = Cathegory.valueOf(cathegory);
-        productRepository.products.add(new Product(name, description, price, image, c, productRepository.createNewId()));
-        System.out.println(productRepository.products);
+    @PostMapping("/nicetohave/newpost")
+    String newpostpost(Model model, @RequestParam String name, String description, int price, String image, Long cathegory) {
+        Cathegory c = cathegoryRepo.findById(cathegory).get();
+        Product product = new Product(name, description, price, image, c);
+        productRepository.save(product);
+        System.out.println(product);
+        System.out.println(productRepository.findAll());
         return "newpost";
 
-    }*/
+    }
 
         //hej
 
@@ -161,9 +160,9 @@ public class ShopController {
             return "userpage";
         }
         else { return "login"; }
-    }
+    }*/
 
-
-    }
+/*
+    }*/
 }
 
