@@ -53,6 +53,8 @@ public class ShopController {
                 }
             }
         }*/
+
+
 /*        for(Product sak : copy) {
             productRepository.removeById(sak.getId());
             cart.removeById(sak.getId());
@@ -90,7 +92,8 @@ public class ShopController {
 
         return "checkout";
 
-    }*/
+    }
+    */
 
    /* @GetMapping("/nicetohave/newpost")
     String newpost(Model model) {
@@ -158,9 +161,9 @@ public class ShopController {
             return "userpage";
         }
         else { return "login"; }
-    }*/
+    }
 
-/*
-    }*/
+
+    }
 }
 
