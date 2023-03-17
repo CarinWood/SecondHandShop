@@ -7,21 +7,21 @@ import java.util.ArrayList;
 @Service
 public class UserRepository {
 
-    ArrayList<User> users;
+    ArrayList<Account> users;
 
     public UserRepository() {
         this.users = new ArrayList<>();
-        users.add(new User("Carin", "124"));
-        users.add(new User("Jonathan", "234"));
+        users.add(new Account("Carin", "124"));
+        users.add(new Account("Jonathan", "234"));
     }
 
-    public ArrayList<User> getUsers() {
+    public ArrayList<Account> getUsers() {
        return this.users;
     }
 
-    public User getUserByUsername(String username) {
-        User getUser = null;
-        for(User user: users) {
+    public Account getUserByUsername(String username) {
+        Account getUser = null;
+        for(Account user: users) {
             if(user.getUsername().equals(username)) {
                 getUser = user;
             }
@@ -31,19 +31,19 @@ public class UserRepository {
 
 
     public void createUser(String username, String password) {
-        for(User user: users) {
+        for(Account user: users) {
             if(username.equals(user.getUsername())) {
 
                 return;
             }
         }
-        User user = new User(username, password);
+        Account user = new Account(username, password);
         users.add(user);
         System.out.println("New user successfully created!");
     }
 
     public boolean loginUser(String username, String password) {
-        for(User user : users) {
+        for(Account user : users) {
             if(username.equals(user.getUsername()) && password.equals(user.getPassword())) {
                 return true;
             }

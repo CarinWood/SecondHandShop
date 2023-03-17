@@ -1,19 +1,28 @@
 package com.example.SecondHandShop;
 
 
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.springframework.web.context.annotation.SessionScope;
 
-
+@Entity
 @SessionScope
-public class User {
+public class Account {
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    Long id;
+
     String username;
     String password;
 
-    public User(String username, String password) {
+    public Account(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    public Account() {
     }
 
     public String getUsername() {

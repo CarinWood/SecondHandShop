@@ -30,6 +30,9 @@ public class ShopController {
     @Autowired
     CathegoryRepo cathegoryRepo;
 
+    @Autowired
+    AccountRepo accountRepo;
+
     @GetMapping("/nicetohave")
     String ShopFunc(Model model) {
         model.addAttribute("products", productRepository.findAll());
@@ -56,7 +59,7 @@ public class ShopController {
                 }
             }
         }
-        for(Product sak : copy) {
+        for (Product sak : copy) {
             productRepository.deleteById(sak.getId());
             cart.removeById(sak.getId());
         }
@@ -109,40 +112,11 @@ public class ShopController {
 
     }
 
-        //hej
+    //hej
 
-   @GetMapping("/nicetohave/register")
+    @GetMapping("/nicetohave/register")
     String registerFunc() {
         return "register";
-    }
-/*
-    @PostMapping("/nicetohave/register")
-    String postregisterfunc(Model model, @RequestParam String password, @RequestParam String username) {
-        int arraySizeBefore = userRepository.getUsers().size();
-        userRepository.createUser(username, password);
-        int arraySizeAfter = userRepository.getUsers().size();
-
-        if(arraySizeAfter > arraySizeBefore) {
-            return "redirect:/nicetohave/userpage/0";
-        }
-        else {
-
-            return "failed";
-        }
-
-    }
-
-
-    @GetMapping("/nicetohave/userpage/{user}")
-    String userpageFunc(Model model, @PathVariable String user) {
-    user = userRepository.getUsernameOfLastRegisterdUsers();
-    model.addAttribute("user", user);
-        return "userpage";
-    }
-
-    @GetMapping("/nicetohave/failed")
-    String failedFunc() {
-        return "failed";
     }
 
     @GetMapping("/nicetohave/login")
@@ -150,19 +124,47 @@ public class ShopController {
         return "login";
     }
 
-    @PostMapping("/nicetohave/login/{user}")
-    String loginPost(Model model, @RequestParam String username, @RequestParam String password, @PathVariable String user) {
+    @PostMapping("/nicetohave/login")
+    String loginPost(Model model, @RequestParam String username, @RequestParam String password) {
         model.addAttribute("username", username);
         model.addAttribute("password", password);
-        user = username;
-        Boolean isLogedin = userRepository.loginUser(username, password);
-        if(isLogedin) {
-            return "userpage";
+        Account account = accountRepo.findByUsernameAndPassword(username, password);
+        if (account != null) {
+            return "redirect:/nicetohave/userpage/" + account.id;
         }
-        else { return "login"; }
-    }*/
+        System.out.println(username);
+        System.out.println(accountRepo.findAll());
+        return "redirect:/nicetohave/login";
+    }
 
-/*
-    }*/
+
+    @GetMapping("/nicetohave/userpage/{userId}")
+    String userpageFunc(Model model, @PathVariable Long userId) {
+        model.addAttribute("userId", userId);
+        model.addAttribute("user", accountRepo.findById(userId).get().username);
+        return "userpage";
+    }
+
+
+    @PostMapping("/nicetohave/register")
+    String postregisterfunc(Model model, @RequestParam String password, @RequestParam String username) {
+        Account newAccount = new Account(username, password);
+        Account account = accountRepo.findByUsername(username);
+        if(account != null){
+            return "failed";
+        }
+        accountRepo.save(newAccount);
+        return "redirect:/nicetohave/login";
+    }
+
+
+    @GetMapping("/nicetohave/failed")
+    String failedFunc() {
+        return "failed";
+    }
 }
+
+
+
+
 

@@ -44,5 +44,7 @@ INSERT INTO Product (name, price, image, description,cathegory_id) VALUES
 INSERT INTO Product (name, price, image, description,cathegory_id) VALUES
 ('Barnskidor, Head', 800, '/images/skidor.png', 'äljer dessa underbara skidor som mitt barn haft mycket nöje för. Passar bäst för längden 140-160cm', 2);
 
+INSERT INTO ACCOUNT (username, password) values('Carin', '124');
 
+INSERT INTO ACCOUNT (username, password) values('Jonathan', '123');
 
