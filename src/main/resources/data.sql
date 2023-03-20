@@ -44,6 +44,24 @@ INSERT INTO Product (name, price, image, description,cathegory_id) VALUES
 INSERT INTO Product (name, price, image, description,cathegory_id) VALUES
 ('Barnskidor, Head', 800, '/images/skidor.png', 'äljer dessa underbara skidor som mitt barn haft mycket nöje för. Passar bäst för längden 140-160cm', 2);
 
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('Crescent Compact', 3900, 'https://img.tradera.net/images/052/524896052_3f2b8c37-5fb1-41f3-bfa0-fbb9d738bac0.jpg', 'Det du ser på bilden är det du köper!', 5);
+
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('Polo Ralph Lauren', 190, 'https://img.tradera.net/images/118/525571118_dcab4eed-89a8-462e-ac51-1fe36429e61d.jpg', 'Märke: Polo Ralph Lauren Typ: Huvtröja Storlek: 146 Färg: Grå Material: Bomull Mönster: Tryck Kroppstyp: Pojke', 1);
+
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('Ny DHL-skåpbil', 5000, '/images/DHL.jpg', 'Ny liten DHL-skåpbil i metall med öppningsbara dörrar. Djur och rökfritt hem.', 5);
+
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('My Little Pony VHS', 500, '/images/vhs.jpg', 'My Little Pony- Tur i oturen. VHS. ENDAST fodralet. Ingen film. Har fler annonser ute, samfraktar.', 4);
+
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('Litet matbord', 5500, '/images/putin.jpg', 'Passar de flesta hem. Fraktas efter kommande flytt från Kreml', 6);
+
+INSERT INTO Product (name, price, image, description, cathegory_id) VALUES
+('DVD Sony hemma bio.', 300, 'https://img.tradera.net/images/198/524805198_db61e172-1674-494e-97f0-79c9d89a01af.jpg', '5 högtalare och en Bass reflex subwoofer.Bra skick.', 3);
+
 INSERT INTO ACCOUNT (username, password) values('Carin', '124');
 
 INSERT INTO ACCOUNT (username, password) values('Jonathan', '123');
