@@ -9,5 +9,5 @@ import java.util.List;
 public interface ProductRepo extends CrudRepository <Product, Long>{
 
 
-
+    List<Product> findByCathegoryId(Long Id);
 }

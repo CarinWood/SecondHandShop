@@ -39,6 +39,15 @@ public class ShopController {
         return "shop";
     }
 
+    @GetMapping("/nicetohave/cat/{id}")
+    String shopFunctionHem(Model model, @PathVariable Long id) {
+        model.addAttribute("products", productRepository.findByCathegoryId(id));
+        model.addAttribute("cartSize", cart.getItems().size());
+        model.addAttribute("cartArray", cart.getItems());
+        model.addAttribute("sum", cart.getSum());
+        return "hem";
+    }
+
     @GetMapping("/nicetohave/delete/{id}")
     String shopPostFunc(@PathVariable Long id) {
         cart.removeById(id);

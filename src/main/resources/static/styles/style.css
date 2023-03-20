@@ -218,5 +218,10 @@ img {
     margin-top: 10px;
 }
 
+.filter {
+    display: flex;
+    margin-top: 70px!important;
+    z-index: 10;
+}
 
 
